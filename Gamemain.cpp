@@ -11,7 +11,7 @@ Gamemain::~Gamemain()
 
 AbstractScene* Gamemain::Update()
 {
-	return nullptr;
+	return this;
 }
 
 void Gamemain::Draw() const
