@@ -139,12 +139,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FPS.cpp" />
     <ClCompile Include="Gamemain.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="PadInput.cpp" />
     <ClCompile Include="SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractScene.h" />
+    <ClInclude Include="Define.h" />
+    <ClInclude Include="FPS.h" />
     <ClInclude Include="Gamemain.h" />
+    <ClInclude Include="PadInput.h" />
     <ClInclude Include="SceneManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
