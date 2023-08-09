@@ -4,6 +4,10 @@
 class Gamemain :public AbstractScene
 {
 private:
+	int Player;
+	int Life;
+	int enemy[];
+	int bullet[];
 
 public:
 	// コンストラクタ
@@ -16,4 +20,7 @@ public:
 
 	//描画に関することを実装
 	void Draw() const override;
+
+	void HitCheck();
+	void SpawnBullet();
 };

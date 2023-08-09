@@ -18,3 +18,11 @@ void Gamemain::Draw() const
 {
 	DrawFormatString(0, 0, 0xffffff, "ƒQ[ƒ€ƒƒCƒ“");
 }
+
+void Gamemain::HitCheck()
+{
+}
+
+void Gamemain::SpawnBullet()
+{
+}
