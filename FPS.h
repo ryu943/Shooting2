@@ -2,7 +2,7 @@
 class FPS
 {
 private:
-	int nextTime = 0;
+	int nextTime;
 	int fpsCnt;
 	int a = 0;
 public:
