@@ -45,7 +45,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 		ClearDrawScreen();		// âÊñ ÇÃèâä˙âª
 		PAD_INPUT::UpdateKey();
-		;
 		sceneMng->Draw();
 		//ã≠êßèIóπ
 		if (PAD_INPUT::OnButton(XINPUT_BUTTON_BACK))
