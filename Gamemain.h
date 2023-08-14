@@ -6,8 +6,8 @@ class Gamemain :public AbstractScene
 private:
 	int Player;
 	int Life;
-	int enemy[];
-	int bullet[];
+	int enemy[3];
+	int bullet[5];
 
 public:
 	// コンストラクタ

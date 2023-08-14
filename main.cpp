@@ -4,6 +4,7 @@
 #include "FPS.h"
 #include "SceneManager.h"
 #include "PadInput.h"
+#include "Title.h"
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	LPSTR lpCmdLine, int nCmdShow)
 {
@@ -22,7 +23,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 	try // シーンを選ぶとそこからスタートする（最終的にはTitleを入れる）
 	{
-		sceneMng = new SceneManager((AbstractScene*)new Gamemain());
+		sceneMng = new SceneManager((AbstractScene*)new Title());
 
 	}
 	catch (const char* err)

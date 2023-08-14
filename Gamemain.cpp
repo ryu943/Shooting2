@@ -17,6 +17,8 @@ AbstractScene* Gamemain::Update()
 void Gamemain::Draw() const
 {
 	DrawFormatString(0, 0, 0xffffff, "ƒQ[ƒ€ƒƒCƒ“");
+	DrawCircle(650, 600, 20, 0x0000ff, TRUE);
+
 }
 
 void Gamemain::HitCheck()
