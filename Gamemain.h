@@ -1,6 +1,7 @@
 #pragma once
 #include "DxLib.h"
 #include "AbstractScene.h"
+#include "Player.h"
 class Gamemain :public AbstractScene
 {
 private:

@@ -1,15 +1,28 @@
 #pragma once
-#include "DxLib.h"
-class SpehereCollider
+
+struct Location
 {
-private:
-	int location;
+	float x; //中心座標(x)
+	float y; //中心座標(y)
 
-	int radius;
+};
+
+class SphereCollider
+{
+protected:
+	int radius; //半径
+	Location location;//当たり判定
 public:
+	SphereCollider();//コンストラクタ 
 
+	int GetRadius() const; //半径の取得
 
-	void CheckCollision();
+	bool CheckCollision(SphereCollider* spherecollider)const; //当たり判定
+
+	//bool HitBox(class BoxCollider boxCollider) const;
+
+	Location GetLocation(); //中心座標を取得
+
 
 };
 
