@@ -28,8 +28,9 @@ void CharaBase::Update()
 	}
 	//ç∂à⁄ìÆ
 	if (PAD_INPUT::OnPressed(XINPUT_BUTTON_DPAD_LEFT) || PAD_INPUT::GetLStick().x <= -32000) {
-		x += speed;
+		x -= speed;
 	}
+	
 }
 
 void CharaBase::Draw()

@@ -2,6 +2,7 @@
 #include "DxLib.h"
 #include "AbstractScene.h"
 #include "Player.h"
+#include "CharaBase.h"
 class Gamemain :public AbstractScene
 {
 private:
@@ -15,7 +16,8 @@ public:
 	Gamemain();
 	//デストラクタ
 	~Gamemain();
-
+	// クラスのオブジェクト
+	CharaBase*CharaBase;	
 	//描画以外の更新を実行
 	AbstractScene* Update() override;
 

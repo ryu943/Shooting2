@@ -12,9 +12,9 @@ public:
 	Player();
 	~Player();
 
-	virtual void Update() override;
+    void Update() override;
 
-	virtual void Draw() override;
+	void Draw() override;
 
 	void Hit()	override;
 

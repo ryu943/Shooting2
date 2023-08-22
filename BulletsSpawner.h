@@ -10,6 +10,6 @@ private:
 public:
 	BulletsSpawner();
 
-	void Shoot();
+	virtual void Shoot();
 };
 

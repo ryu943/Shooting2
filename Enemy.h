@@ -1,5 +1,7 @@
 #pragma once
-class Enemy
+#include "CharaBase.h"
+class Enemy:
+	public CharaBase
 {
 private:
 	int hp;
@@ -9,8 +11,8 @@ public:
 	Enemy();
 	~Enemy();
 
-	void Update() override;
-	void Draw() override;
-	void Hit() override;
+	 void Update() override;
+	 void Draw() override;
+	 void Hit() override;
 };
 

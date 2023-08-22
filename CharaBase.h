@@ -10,10 +10,10 @@ private:
 public:
 	CharaBase();
 
-	void Update();
+	virtual void Update();
 
-	void Draw();
+	virtual void Draw();
 
-	void Hit();
+	virtual void Hit();
 };
 
