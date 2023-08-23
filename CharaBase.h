@@ -5,14 +5,15 @@ class CharaBase:
 {
 private:
 	int speed = 0;
-	int x, y = 0;
+	
 	int image = 0;
+	float x, y;
 public:
 	CharaBase();
 
 	virtual void Update();
 
-	virtual void Draw();
+	virtual void Draw() const;
 
 	virtual void Hit();
 };

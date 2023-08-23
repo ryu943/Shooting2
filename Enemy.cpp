@@ -12,9 +12,10 @@ void Enemy::Update()
 {
 }
 
-void Enemy::Draw()
+void Enemy::Draw() const
 {
 }
+
 
 void Enemy::Hit()
 {

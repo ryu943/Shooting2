@@ -1,8 +1,9 @@
 #include "DxLib.h"
 #include "Gamemain.h"
-#include"CharaBase.h"
+#include"Player.h"
 Gamemain::Gamemain()
 {
+	player = 0;
 }
 
 Gamemain::~Gamemain()
@@ -11,7 +12,7 @@ Gamemain::~Gamemain()
 
 AbstractScene* Gamemain::Update()
 {
-
+	
 	return this;
 }
 
@@ -19,7 +20,7 @@ void Gamemain::Draw() const
 {
 	DrawFormatString(0, 0, 0xffffff, "ƒQ[ƒ€ƒƒCƒ“");
 
-	CharaBase->Draw();
+	Player.Draw();
 }
 
 void Gamemain::HitCheck()

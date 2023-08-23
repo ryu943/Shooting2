@@ -6,18 +6,20 @@
 class Gamemain :public AbstractScene
 {
 private:
-	int Player;
-	int Life;
+	int player = 0;
+	int Life = 0;
 	int enemy[3];
 	int bullet[5];
+
+	Player Player;
 
 public:
 	// コンストラクタ
 	Gamemain();
 	//デストラクタ
 	~Gamemain();
-	// クラスのオブジェクト
-	CharaBase*CharaBase;	
+	
+
 	//描画以外の更新を実行
 	AbstractScene* Update() override;
 
