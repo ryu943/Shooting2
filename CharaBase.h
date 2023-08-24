@@ -7,7 +7,8 @@ private:
 	int speed = 0;
 	
 	int image = 0;
-	float x, y;
+	float x;
+	float y;
 public:
 	CharaBase();
 

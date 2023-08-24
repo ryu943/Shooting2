@@ -10,12 +10,10 @@ CharaBase::CharaBase()
 void CharaBase::Update()
 {
 
-	///y += speed;
-
 
 }
 
-void CharaBase::Draw()
+void CharaBase::Draw() const
 {
 	DrawCircle(650, 600, 20, 0x0000ff, TRUE);
 }

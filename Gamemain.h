@@ -1,13 +1,11 @@
 #pragma once
-#include "DxLib.h"
 #include "AbstractScene.h"
-#include "Player.h"
-#include "CharaBase.h"
+#include"Player.h"
 class Gamemain :public AbstractScene
 {
 private:
-	int player = 0;
-	int Life = 0;
+	int player;
+	int Life;
 	int enemy[3];
 	int bullet[5];
 

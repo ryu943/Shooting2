@@ -1,12 +1,12 @@
 #pragma once
 #include "CharaBase.h"
 class Enemy:
-	public CharaBase
+	public CharaBase 
 {
 private:
-	int hp;
-	int point;
-	int weappon;
+	int hp = 0;
+	int point = 0;
+	int weappon = 0;
 public:
 	Enemy();
 	~Enemy();

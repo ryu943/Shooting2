@@ -1,92 +1,80 @@
 #pragma once
-#include"DxLib.h"
+
+#include "DxLib.h"
 
 #define BUTTONS 16
 
-//スティック
-struct Stick
-{
-	short x;	//横軸値
-	short y;	//縦軸値
-};
-
-class PAD_INPUT
-{
+class PAD_INPUT {
 private:
+	static int NowKey[BUTTONS];
+	static int OldKey[BUTTONS];
+	static int KeyFlg[BUTTONS];
 
-	static char now_key[BUTTONS]; //今回の入力キー
-	static char old_key[BUTTONS]; //前回の入力キー
-	static XINPUT_STATE input; //パッド
-	static Stick r_stick; //右スティック
-	static Stick l_stick; //左スティック
-private:
+	/// <summary>
+	/// 現在の入力
+	/// </summary>
+	static XINPUT_STATE Input;
 
-	//コンストラクタ
-	PAD_INPUT() = default;
 public:
+	/// <summary>
+	/// パッド入力の更新
+	/// </summary>
+	static void UpdateInput();
 
-	//パッド情報の更新
-	static void UpdateKey()
-	{
-		// 入力キー取得
-		GetJoypadXInputState(DX_INPUT_KEY_PAD1, &input);
+	/// <summary>
+	/// 入力確認（デバッグ）
+	/// </summary>
+	static void DebugInput(); //デバッグ
 
-		for (int i = 0; i < BUTTONS; i++)
-		{
-			old_key[i] = now_key[i];
-			now_key[i] = input.Buttons[i];
-		}
+	/// <summary>
+	/// 左スティック
+	/// </summary>
+	/// <returns>横</returns>
+	static int GetPadThumbLX() { return Input.ThumbLX; }
 
-		//右スティック
-		r_stick.x = input.ThumbRX;
-		r_stick.y = input.ThumbRY;
+	/// <summary>
+	/// 左スティック
+	/// </summary>
+	/// <returns>縦</returns>
+	static int GetPadThumbLY() { return -Input.ThumbLY; }
 
-		//左スティック
-		l_stick.x = input.ThumbLX;
-		l_stick.y = input.ThumbLY;
-	}
+	/// <summary>
+	/// 左スティック
+	/// </summary>
+	/// <returns>横</returns>
+	static int GetPadThumbRX() { return Input.ThumbRX; }
 
-	//ボタンを押された瞬間
-	static bool OnButton(int button)
-	{
-		bool ret = (now_key[button] == 1 && old_key[button] == 0);
-		return ret;
-	}
+	/// <summary>
+	/// 左スティック
+	/// </summary>
+	/// <returns>縦</returns>
+	static int GetPadThumbRY() { return -Input.ThumbRY; }
 
-	//ボタンを押してる間
-	static bool OnPressed(int button)
-	{
-		bool ret = (now_key[button] == 1);
-		return ret;
-	}
+	/// <summary>
+	/// LT
+	/// </summary>
+	/// <returns>押し具合</returns>
+	static int GetLeftTrigger() { return Input.LeftTrigger; }
 
-	//ボタンを離した瞬間
-	static bool OnRelease(int button)
-	{
-		bool ret = (now_key[button] == 0 && old_key[button] == 1);
-		return ret;
-	}
+	/// <summary>
+	/// RT
+	/// </summary>
+	/// <returns>押し具合</returns>
+	static int GetRightTrigger() { return Input.RightTrigger; }
 
-	//右スティックの取得
-	static Stick GetRStick()
-	{
-		return r_stick;
-	}
+	/// <summary>
+	/// ボタンの入力
+	/// </summary>
+	/// <param name="key">ボタン</param>
+	/// <returns>押され続けてる間１を返す</returns>
+	static int GetNowKey(int key) { return NowKey[key]; }
 
-	//左スティックの取得
-	static Stick GetLStick()
-	{
-		return l_stick;
-	}
-
-	static char GetOldKey(const int i)
-	{
-		return old_key[i];
-	}
-
-	static char GetNowKey(const int i)
-	{
-		return now_key[i];
-	}
+	//Pressed
+	/// <summary>
+	/// ボタンの入力
+	/// </summary>
+	/// <param name="key">ボタン</param>
+	/// <returns>押した瞬間１を返す</returns>
+	static int GetKeyFlg(int key) { return KeyFlg[key]; }
 };
 

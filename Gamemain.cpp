@@ -1,9 +1,8 @@
 #include "DxLib.h"
 #include "Gamemain.h"
-#include"Player.h"
+
 Gamemain::Gamemain()
 {
-	player = 0;
 }
 
 Gamemain::~Gamemain()
