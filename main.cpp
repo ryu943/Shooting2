@@ -45,13 +45,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	while ((ProcessMessage() == 0) && (sceneMng->Update() != nullptr)) {
 
 		ClearDrawScreen();		// âÊñ ÇÃèâä˙âª
-		PAD_INPUT::UpdateKey();
+		InputKey::Update();
 		sceneMng->Draw();
-		//ã≠êßèIóπ
-		if (PAD_INPUT::OnButton(XINPUT_BUTTON_BACK))
-		{
-			break;
-		}
+	
 
 		fpsCtrl.FpsCtrl();
 

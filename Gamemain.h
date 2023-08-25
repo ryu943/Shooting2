@@ -9,7 +9,7 @@ private:
 	int enemy[3];
 	int bullet[5];
 
-	Player Player;
+	Player play;
 
 public:
 	// コンストラクタ

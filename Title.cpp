@@ -17,57 +17,18 @@ Title::~Title()
 
 AbstractScene* Title::Update()
 {
-	if (++time % 20 == 0) {
-
-		switch (turnNum)
-		{
-		case 0:
-			num = 0;
-			turnNum = 1;
-			break;
-		case 1:
-			if (num == 0) {
-				turnNum = 2;
-			}
-			else if (num == 2) {
-				turnNum = 0;
-			}
-			num = 1;
-
-			break;
-		case 2:
-			if (num == 1) {
-				turnNum = 3;
-			}
-			else if (num == 3) {
-				turnNum = 1;
-			}
-			num = 2;
-
-			break;
-		case 3:
-			num = 3;
-			turnNum = 2;
-			break;
-		}
-
+	InputKey::Update();
+	num = selectNum * 100;
+	if (InputKey::GetJoyStickY(InputKey::Y_now)&&InputKey::Y_now>0)
+	{
+		if (++selectNum > 1)selectNum = 0;
 	}
-
-	if (PAD_INPUT::OnButton(XINPUT_BUTTON_DPAD_UP) || PAD_INPUT::GetLStick().y >= 32000) {
-		selectNum--;
-		if (selectNum < 0) {
-			selectNum = 1;
-		}
+	if (InputKey::GetJoyStickY(InputKey::Y_now)&&InputKey::Y_now<0)
+	{
+		if (--selectNum < 0)selectNum = 1;
 	}
-	if (PAD_INPUT::OnButton(XINPUT_BUTTON_DPAD_DOWN) || PAD_INPUT::GetLStick().y <= -32000) {
-		selectNum++;
-		if (selectNum > 1) {
-			selectNum = 0;
-		}
-	}
-
-	if (selectNum == 0 && PAD_INPUT::OnButton(XINPUT_BUTTON_A)) {
-		return new Gamemain();
+	if (InputKey::GetKeyDown(PAD_INPUT_1) == TRUE && selectNum == 0){
+		return new Gamemain;
 	}
 	return this;
 }

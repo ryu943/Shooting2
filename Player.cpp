@@ -5,47 +5,48 @@
 Player::Player()
 {
 	speed = 3;
-	image = LoadGraph("images/player.png");
-	x = 320;
-	y = 720 - 96;
-	w = 50;
-	h = 109;
-	speedX = 0;
-	speedY = 0;
+	image = 0;
+	x = 50;
+	y = 200;
+	xstick = 0;
+	ystick = 0;
 }
 
 Player::~Player()
 {
 }
 
+
 void Player::Update()
 {
-	//プレイヤーの画像の座標
-	imageX = x + (w / 2);
-	imageY = y + (h / 2);
-
-	//0から1の間が出るように計算
-	speedX = round(((float)PAD_INPUT::GetPadThumbLX() / 32767) * 100) / 100;
-	speedY = round(((float)PAD_INPUT::GetPadThumbLY() / 32767) * 100) / 100;
-
-	//プレイヤーの移動処理
-	x += speedX * speed;
-	y += speedY * speed;
-
-	//プレイヤーが画面外に出ないように
-	if (x < 0) {
-		x = 0;
+	InputKey::Update();
+	GetJoypadAnalogInput(&xstick, &ystick, DX_INPUT_PAD1);
+	InputKey::GetJoyStickX(xstick);
+	InputKey::GetJoyStickY(ystick);
+	if (xstick < 0) {
+		if (x > 0)
+			x -= 5;
+	}
+	if (xstick > 0) {
+		if (x < 960)
+			x += 5;
+	}
+	if (ystick < 0) {
+		if (y > 0)
+			y-= 5;
+	}
+	if (ystick > 0) {
+		if (y< 960)
+			y += 5;
 	}
 
-	if (y < 0) {
-		y = 0;
-	}
-	
 }
 
 void Player::Draw() const 
 {
-	DrawGraph(30, 30, image, TRUE);
+	//DrawGraph(30, 30, image, TRUE);
+	DrawFormatString(400, 500, 0xffffff, "aaa");
+	DrawCircle(x, y,50, 0x00ffff);
 	
 }
 

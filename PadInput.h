@@ -1,80 +1,48 @@
 #pragma once
-
 #include "DxLib.h"
-
-#define BUTTONS 16
-
-class PAD_INPUT {
+class InputKey
+{
 private:
-	static int NowKey[BUTTONS];
-	static int OldKey[BUTTONS];
-	static int KeyFlg[BUTTONS];
-
-	/// <summary>
-	/// 現在の入力
-	/// </summary>
-	static XINPUT_STATE Input;
-
+	static int key_flg;
+	static int now_key;
+	static int old_key;
 public:
-	/// <summary>
-	/// パッド入力の更新
-	/// </summary>
-	static void UpdateInput();
-
-	/// <summary>
-	/// 入力確認（デバッグ）
-	/// </summary>
-	static void DebugInput(); //デバッグ
-
-	/// <summary>
-	/// 左スティック
-	/// </summary>
-	/// <returns>横</returns>
-	static int GetPadThumbLX() { return Input.ThumbLX; }
-
-	/// <summary>
-	/// 左スティック
-	/// </summary>
-	/// <returns>縦</returns>
-	static int GetPadThumbLY() { return -Input.ThumbLY; }
-
-	/// <summary>
-	/// 左スティック
-	/// </summary>
-	/// <returns>横</returns>
-	static int GetPadThumbRX() { return Input.ThumbRX; }
-
-	/// <summary>
-	/// 左スティック
-	/// </summary>
-	/// <returns>縦</returns>
-	static int GetPadThumbRY() { return -Input.ThumbRY; }
-
-	/// <summary>
-	/// LT
-	/// </summary>
-	/// <returns>押し具合</returns>
-	static int GetLeftTrigger() { return Input.LeftTrigger; }
-
-	/// <summary>
-	/// RT
-	/// </summary>
-	/// <returns>押し具合</returns>
-	static int GetRightTrigger() { return Input.RightTrigger; }
-
-	/// <summary>
-	/// ボタンの入力
-	/// </summary>
-	/// <param name="key">ボタン</param>
-	/// <returns>押され続けてる間１を返す</returns>
-	static int GetNowKey(int key) { return NowKey[key]; }
-
-	//Pressed
-	/// <summary>
-	/// ボタンの入力
-	/// </summary>
-	/// <param name="key">ボタン</param>
-	/// <returns>押した瞬間１を返す</returns>
-	static int GetKeyFlg(int key) { return KeyFlg[key]; }
+	/*static int key_flg;
+	static int now_key;
+	static int old_key;*/
+	static int Xbuf;
+	static int Ybuf;
+	static int X_flg;
+	static int X_now;
+	static int X_old;
+	static int Y_flg;
+	static int Y_now;
+	static int Y_old;
+public:
+	InputKey()
+	{
+		key_flg = 0;
+		now_key = 0;
+		old_key = 0;
+		Xbuf = 0;
+		Ybuf = 0;
+		X_flg = 0;
+		X_now = 0;
+		X_old = 0;
+		Y_flg = 0;
+		Y_now = 0;
+		Y_old = 0;
+	}
+	static void Update();
+	//押している間信号を送る
+	static int GetKey(int key);
+	//押した瞬間信号を送る
+	static int GetKeyDown(int key);
+	static int GetJoyStickX(int X);
+	static int GetJoyStickY(int Y);
+	static int GetJoyStickXOnes(int X);
+	static int GetJoyStickYOnes(int Y);
 };
+
+
 
