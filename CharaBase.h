@@ -7,11 +7,11 @@ private:
 	int speed = 0;
 	
 	int image = 0;
-	float x;
-	float y;
+
 public:
 	CharaBase();
-
+	static float Playerx;
+	static float Playery;
 	virtual void Update();
 
 	virtual void Draw() const;

@@ -9,11 +9,12 @@ private:
 	int image;
 	int speed;
 	int score = 0;
-	float x;
-	float y;
+
 	int weapon = 0;
 
-public:  
+public: 
+	static float Playerx;
+	static float Playery;
 	Player();
 	~Player();
 

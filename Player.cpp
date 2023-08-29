@@ -2,12 +2,14 @@
 #include "DxLib.h"
 #include "PadInput.h"
 #include <math.h>
+float Player::Playerx;
+float Player::Playery;
 Player::Player()
 {
 	speed = 3;
 	image = 0;
-	x = 50;
-	y = 200;
+	Playerx = 50;
+	Playery = 200;
 	xstick = 0;
 	ystick = 0;
 }
@@ -24,20 +26,20 @@ void Player::Update()
 	InputKey::GetJoyStickX(xstick);
 	InputKey::GetJoyStickY(ystick);
 	if (xstick < 0) {
-		if (x > 0)
-			x -= 5;
+		if (Playerx > 0)
+			Playerx -= 5;
 	}
 	if (xstick > 0) {
-		if (x < 960)
-			x += 5;
+		if (Playerx < 960)
+			Playerx += 5;
 	}
 	if (ystick < 0) {
-		if (y > 0)
-			y-= 5;
+		if (Playery > 0)
+			Playery -= 5;
 	}
 	if (ystick > 0) {
-		if (y< 960)
-			y += 5;
+		if (Playery < 960)
+			Playery += 5;
 	}
 
 }
@@ -46,7 +48,7 @@ void Player::Draw() const
 {
 	//DrawGraph(30, 30, image, TRUE);
 	DrawFormatString(400, 500, 0xffffff, "aaa");
-	DrawCircle(x, y,50, 0x00ffff);
+	DrawCircle(Playerx, Playery,50, 0x00ffff);
 	
 }
 
