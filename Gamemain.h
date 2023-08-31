@@ -1,6 +1,7 @@
 #pragma once
 #include "AbstractScene.h"
 #include"Player.h"
+#include "Bullet.h"
 class Gamemain :public AbstractScene
 {
 private:
@@ -10,6 +11,7 @@ private:
 	int bullet[5];
 
 	Player play;
+	Bullet* bullett;
 
 public:
 	// コンストラクタ

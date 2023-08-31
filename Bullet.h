@@ -6,18 +6,22 @@ class Bullet
 private:
 	struct Bullets {
 		int flg = 0;
-		int damage;
+		float damage;
 		int angle;
 		int acceleration;
 		int anglulVelocity;
-		int bulletx, bullety;
+		float bulletx, bullety;
+		bool oneFlg;
 	};
 	int cnt = 0;
 	Player player;
 	int c = 0;
-	int speed;
+	float speed;
+	int bflg;
 	struct Bullets bullet[20];
 	InputKey inputkey;
+
+	
 	
 public:
 	Bullet();
@@ -25,7 +29,7 @@ public:
 
 	void Update();
 
-	void Draw();
+	void Draw() const ; 
 
 	void GetDamage();
 };
